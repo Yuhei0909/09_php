@@ -2,7 +2,7 @@
 function connect_to_db()
 
 {
-  $dbn = 'mysql:dbname=gsf_d12_18;charset=utf8mb4;port=3306;host=localhost';
+  $dbn = 'mysql:dbname=gs;charset=utf8mb4;port=3306;host=localhost';
   $user = 'root';
   $pwd = '';
 
@@ -14,11 +14,10 @@ function connect_to_db()
   }
 }
 
-// ログイン状態のチェック関数
 function check_session_id()
 {
   if (!isset($_SESSION["session_id"]) || $_SESSION["session_id"] !== session_id()) {
-    header('Location:todo_login.php');
+    header('Location:login.php');
     exit();
   } else {
     session_regenerate_id(true);
